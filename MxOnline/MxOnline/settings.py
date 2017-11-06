@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '959e1ef3-18cc-490d-983e-6a2dc39596d5'
+SECRET_KEY = '8ded62e0-3634-4724-8ddc-f46732aa710c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
+    'organization',
+    'courses',
+    'operation' # 这app的顺序也对迁移有影响呀，前面的是后面的基础
 ]
+AUTH_USER_MODEL = 'users.UserProfile'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,8 +83,13 @@ WSGI_APPLICATION = 'MxOnline.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mxonline',
+        'USER': 'root',
+        'PASSWORD': 'python',
+        'HOST': '127.0.0.1',
     }
 }
 

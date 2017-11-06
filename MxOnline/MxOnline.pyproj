@@ -3,11 +3,12 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>MxOnline</Name>
     <RootNamespace>MxOnline</RootNamespace>
+    <InterpreterId>MSBuild|python36_django11|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>72c94504-00cf-4f08-8034-7987a8e3f049</ProjectGuid>
+    <ProjectGuid>8eb2d43d-e810-4613-bab8-58135e04e2ba</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <StartupFile>manage.py</StartupFile>
@@ -29,17 +30,72 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="courses\admin.py" />
+    <Compile Include="courses\apps.py" />
+    <Compile Include="courses\migrations\__init__.py" />
+    <Compile Include="courses\models.py" />
+    <Compile Include="courses\tests.py" />
+    <Compile Include="courses\views.py" />
+    <Compile Include="courses\__init__.py" />
     <Compile Include="manage.py" />
     <Compile Include="MxOnline\__init__.py" />
     <Compile Include="MxOnline\settings.py" />
     <Compile Include="MxOnline\urls.py" />
     <Compile Include="MxOnline\wsgi.py" />
+    <Compile Include="operation\admin.py" />
+    <Compile Include="operation\apps.py" />
+    <Compile Include="operation\migrations\__init__.py" />
+    <Compile Include="operation\models.py" />
+    <Compile Include="operation\tests.py" />
+    <Compile Include="operation\views.py" />
+    <Compile Include="operation\__init__.py" />
+    <Compile Include="organization\admin.py" />
+    <Compile Include="organization\apps.py" />
+    <Compile Include="organization\migrations\__init__.py" />
+    <Compile Include="organization\models.py" />
+    <Compile Include="organization\tests.py" />
+    <Compile Include="organization\views.py" />
+    <Compile Include="organization\__init__.py" />
+    <Compile Include="users\admin.py" />
+    <Compile Include="users\apps.py" />
+    <Compile Include="users\migrations\__init__.py" />
+    <Compile Include="users\models.py" />
+    <Compile Include="users\tests.py" />
+    <Compile Include="users\views.py" />
+    <Compile Include="users\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="courses\templates\index.html" />
+    <Content Include="operation\templates\index.html" />
+    <Content Include="organization\templates\index.html" />
     <Content Include="requirements.txt" />
+    <Content Include="users\templates\index.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="courses\" />
+    <Folder Include="courses\migrations\" />
+    <Folder Include="courses\templates\" />
     <Folder Include="MxOnline\" />
+    <Folder Include="operation\" />
+    <Folder Include="operation\migrations\" />
+    <Folder Include="operation\templates\" />
+    <Folder Include="organization\" />
+    <Folder Include="organization\migrations\" />
+    <Folder Include="organization\templates\" />
+    <Folder Include="users\" />
+    <Folder Include="users\migrations\" />
+    <Folder Include="users\templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="..\..\..\..\..\Envs\python36_django11\">
+      <Id>python36_django11</Id>
+      <Version>3.6</Version>
+      <Description>python36_django11 (Anaconda 4.3.1)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
