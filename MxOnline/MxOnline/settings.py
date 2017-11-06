@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'users',
     'organization',
     'courses',
-    'operation' # 这app的顺序也对迁移有影响呀，前面的是后面的基础
+    'operation', # 这app的顺序也对迁移有影响呀，前面的是后面的基础
+    'xadmin',
+    'crispy_forms',
 ]
 AUTH_USER_MODEL = 'users.UserProfile'
 
@@ -116,15 +118,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans' #'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai' # 'UTC'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False  #True
 
 
 # Static files (CSS, JavaScript, Images)
