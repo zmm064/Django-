@@ -22,6 +22,10 @@ class Course(models.Model):
         verbose_name = '课程'
         #verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.name
+    
+
 class CourseResource(models.Model):
     name     = models.CharField('资源名', max_length=100)
     download = models.FileField('资源地址',max_length=100, upload_to='course/resource/%Y/%m')
@@ -32,6 +36,7 @@ class CourseResource(models.Model):
     class Meta:
         verbose_name = '课程资源'
         #verbose_name_plural = verbose_name
+
 
 
 class Lesson(models.Model):

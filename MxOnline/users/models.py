@@ -26,12 +26,15 @@ class EmailVerifyRecord(models.Model):
 
     code      = models.CharField('验证码', max_length=20)
     email     = models.EmailField('邮箱', max_length=50)
-    send_type = models.CharField(choices=send_type_choices, max_length=10)
-    send_time = models.DateTimeField(default=datetime.now) # 这里对now不加括号，这样就不会在被编译时调用，而是在实例化时被调用
+    send_type = models.CharField('验证码类型', choices=send_type_choices, max_length=10)
+    send_time = models.DateTimeField('发送时间', default=datetime.now) # 这里对now不加括号，这样就不会在被编译时调用，而是在实例化时被调用
 
     class Meta:
         verbose_name = '邮箱验证码'
         #verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '{} ({})'.format(self.code, self.email)
 
 class Banner(models.Model):
     title    = models.CharField('标题', max_length=100)
@@ -43,3 +46,4 @@ class Banner(models.Model):
     class Meta:
         verbose_name = '轮播图'
         #verbose_name_plural = verbose_name
+

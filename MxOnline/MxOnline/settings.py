@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+#AUTHENTICATION_BACKENDS = ('users.views.CustomBackend',)
 
 INSTALLED_APPS = [
     # Add your apps here to enable them
@@ -39,10 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
-    'organization',
-    'courses',
-    'operation', # 这app的顺序也对迁移有影响呀，前面的是后面的基础
+    'users.apps.usersConfig',
+    'organization.apps.organizationConfig',
+    'courses.apps.coursesConfig',
+    'operation.apps.operationConfig', # 这app的顺序也对迁移有影响呀，前面的是后面的基础
     'xadmin',
     'crispy_forms',
 ]
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'MxOnline.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,5 +134,5 @@ USE_TZ = False  #True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+#STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
